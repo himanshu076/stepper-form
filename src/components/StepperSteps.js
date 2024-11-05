@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stepper, Step, StepLabel, Box } from '@mui/material';
+import { Stepper, Step, StepLabel, Box, Divider } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
@@ -21,17 +21,21 @@ function StepperSteps() {
     };
 
     return (
-        <Box sx={{ width: '100%' }}>
+      <Box sx={{ width: '100%', textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <Box sx={{ width: '80%' }}>
             <Stepper alternativeLabel activeStep={currentStep} connector={null}>
                 {steps.map((label, index) => (
-                    <Step key={label}>
+                    <Step key={label} sx={{ padding: '0px' }}>
+                      <Divider variant='fullWidth' textAlign="center">
                         <StepLabel StepIconComponent={() => renderIcon(index + 1)}>
                             {label}
                         </StepLabel>
+                      </Divider>
                     </Step>
                 ))}
             </Stepper>
         </Box>
+      </Box>
     );
 }
 
